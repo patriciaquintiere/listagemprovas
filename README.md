@@ -11,12 +11,6 @@ Abaixo segue todas as necessárias para rodar o app na versão de desenvolviment
 * NPM
 * Gulp (sudo npm install -g gulp)
 
-Instalar dependências do fontgen (pacote de conversão de fontes para Linux):
-"fontforge ttfautohint" e "ttf2eot ttf2svg" :
-```
-    sudo apt-get install  fontforge ttfautohint
-    sudo npm install -g  ttf2eot ttf2svg
-```
 Para iniciar o projeto, utilize o comando `npm install` para instalar as demais dependências abaixo:
 * angular
 * bootstrap
