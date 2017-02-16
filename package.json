@@ -1,0 +1,35 @@
+{
+  "name": "listagemprovas",
+  "version": "1.0.0",
+  "description": "Projeto teste para listagem de resultados de provas de simulados",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/patriciaquintiere/listagemprovas.git"
+  },
+  "author": "Patrícia Quintiere",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/patriciaquintiere/listagemprovas/issues"
+  },
+  "homepage": "https://github.com/patriciaquintiere/listagemprovas#readme",
+  "devDependencies": {
+    "angular": "^1.6.2",
+    "bootstrap": "^4.0.0-alpha.5",
+    "browser-sync": "^2.18.8",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-gh-pages": "^0.5.4",
+    "gulp-if": "^2.0.2",
+    "gulp-imagemin": "^3.1.1",
+    "gulp-ngmin": "^0.3.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^2.0.1",
+    "gulp-useref": "^3.1.2"
+  }
+}

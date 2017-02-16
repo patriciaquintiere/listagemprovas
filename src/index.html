@@ -1,0 +1,116 @@
+<!DOCTYPE html >
+<html ng-app="app">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="shortcut icon" href="favicon.ico" />
+        <title>Listagem de provas de simulados</title>
+        <!--build:css assets/css/styles.min.css -->
+        <link rel="stylesheet" href="assets/css/styles.css" />
+        <!-- endbuild -->
+    </head>
+    <body id="body" ng-controller="appController">
+        <!-- titulo pagina -->
+        <header class="titlepage">
+            <div class="titlepage__wrapper">
+                <div class="titlepage__inside">
+                    <!-- logo simulados -->
+                    <div class="titlepage__block col-lg-6 col-xs-12">
+                        <a href="/" class="logo-simulados">
+                            <img src="assets/images/logo-simulados.png" alt="Logo Simulados" />
+                        </a>
+                    </div>
+                    <!-- logo medgrupo -->
+                    <div class="titlepage__block col-lg-6 col-xs-12">
+                        <h1>
+                            <a href="/" class="logo-medgrupo">
+                                <img src="assets/images/logo-medgrupo.png" alt="Logo Medgrupo" />
+                            </a>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- menu e filtro -->
+        <section class="menu__wrapper">
+            <div class="menu__inside">
+                <!-- menu -->
+                <div class="menu__listmenu col-lg-4 col-xs-12">
+                    <div class="menu__listmenu--content">
+                        <!-- botoes aumenta fonte -->
+                        <div class="access-buttons">
+                            <button type="button" class="icon-inc" ng-click="iconInc()">A+</button>
+                            <button type="button" class="icon-dec" ng-click="iconDec()">A-</button>
+                            <button type="button" class="icon-dec" ng-click="iconFontDefault()">Fonte padrão</button>
+                        </div>
+
+                        <nav>
+                            <ul class="listmenu__provas">
+                                <li>Simulados de 2008</li>
+                                <li ng-repeat="itens in simulados">
+                                    <!-- link prova simulado -->
+                                    <a href="javascript:void(0)">{{ itens.nome }}</a>
+                                    <!-- link provas objetivas e finais -->
+                                    <div ng-repeat="item in itens.provas" class="listmenu__provas--tipo">
+                                        <a href="javascript:void(0)" ng-click="tipoSimulado(itens.nome,item.tipo)">prova {{ item.tipo }}</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <!-- filtro -->
+                <div class="menu__filter col-lg-8 col-xs-12">
+                    <div class="menu__filter--content filter">
+                        <h2><span class="">{{ tipoNum }}</span> - <span class="">{{ tipoProva }}</span></h2>
+                        <p>
+                            Os resultados dos simulado são atualizados diariamente, na medida em que os cartões-resposta e as provas discursivas vão sendo processados.
+                        </p>
+                        <p>Através dos filtros, você poderá criar rankings personalizados, por <span>Especialidade, <span>Turma</span>(Curso) e <span>Unidade</span>(Cidade).</p>
+                        <!-- matricula -->
+                        <div class="filter__register">
+                            <p>Entre com sua matrícula:</p> <input type="text" /><button type="button">procurar</button>
+                            <p class="filter__register-erro"></p>
+                        </div>
+                        <!-- filtro provas -->
+                        <div class="filter__parameters">
+                            <p>Filtrar por:</p>
+                            <select>
+                                <option value="">Especialidades - TODAS</option>
+                            </select>
+                            <select>
+                                <option value="">Filiais - TODAS</option>
+                            </select>
+                            <select>
+                                <option value="">Turmas - TODAS</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- listagem de simulados -->
+        <section class="simulados__wrapper">
+            <div class="simulados__inside">
+                <!-- filtro -->
+                <div class="simulados__filter col-lg-12">
+                    <p><a href="javascript:void(0)">imprimir</a> | <a href="javascript:void(0)">enviar para um amigo</a></p>
+                    <div class="simulados__filter--pag">
+                        <div class="pagination"><p><span>1º</span> ao <span>4º</span></p></div>
+                        <div class="pagination"><p>ir para:</p> <input type="text" /></div>
+                        <div class="order"><p>mostrar:</p> <select><option value="">todos</option></select></div>
+                        <div class="download-table"><a href="javascript:void(0)">baixar planilha completa</a></div>
+                    </div>
+                </div>
+                <!-- tabela -->
+                <table-simulado></table-simulado>
+            </div>
+        </section>
+        <!--build:js assets/js/angular.min.js -->
+        <script src="../node_modules/angular/angular.min.js"></script>
+        <!--endbuild-->
+        <!--build:js assets/js/scripts.min.js -->
+        <script src="src/app/app.js"></script>
+        <script src="src/app/table/table.component.js"></script>
+        <!--endbuild-->
+    </body>
+</html>
