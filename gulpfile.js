@@ -73,7 +73,7 @@ gulp.task('watch', ['browserSync', 'sass'], function (){
 });
 
 // Minify Task
-gulp.task('build', ['useref','minImage','copy-templates'], function(){
+gulp.task('build', ['useref','minImage','copy-templates','copy-data-json'], function(){
     //gulp.src(['src/*.png','src/*.ico',]).pipe(gulp.dest('dist'));
 });
 
