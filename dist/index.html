@@ -90,8 +90,8 @@
                             <select ng-model="search.turma">
                                 <option value="">Turmas - TODAS</option>
                                 <option value="2008 MEDGRUPO CURITIBA - Turma A/2008 CURITIBA">2008 MEDGRUPO CURITIBA - Turma A/2008 CURITIBA</option>
-                                <<option value="2008 MEDGRUPO SALVADOR - Turma A/2008 SALVADOR">2008 MEDGRUPO SALVADOR - Turma A/2008 SALVADOR</option>
-                                <<option value="2008 MEDGRUPO SÃO PAULO - Turma A/2008 SÃO PAULO">2008 MEDGRUPO SÃO PAULO - Turma A/2008 SÃO PAULO</option>
+                                <option value="2008 MEDGRUPO SALVADOR - Turma A/2008 SALVADOR">2008 MEDGRUPO SALVADOR - Turma A/2008 SALVADOR</option>
+                                <option value="2008 MEDGRUPO SÃO PAULO - Turma A/2008 SÃO PAULO">2008 MEDGRUPO SÃO PAULO - Turma A/2008 SÃO PAULO</option>
                             </select>
                         </div>
                     </div>
@@ -107,7 +107,16 @@
                     <div class="simulados__filter--pag">
                         <div class="pagination"><p><span>1º</span> ao <span>4º</span></p></div>
                         <div class="pagination"><p>ir para:</p> <input type="text" /></div>
-                        <div class="order"><p>mostrar:</p> <select><option value="">todos</option></select></div>
+                        <div class="order"><p>mostrar:</p>
+                            <select ng-model="sortTable.propName">
+                                <option value="posicao" selected>posicao</option>
+                                <option value="nota">nota</option>
+                                <option value="matricula">matrícula</option>
+                                <option value="espcialidade">especialidade</option>
+                                <option value="turma">turma</option>
+                                <option value="filial">filial</option>
+                            </select>
+                        </div>
                         <div class="download-table"><a href="javascript:void(0)">baixar planilha completa</a></div>
                     </div>
                 </div>
@@ -124,7 +133,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="item in provas | filter:search">
+                        <tr ng-repeat="item in provas | filter:search | orderBy: sortTable.propName">
                             <td>{{ item.posicao }}º</td>
                             <td>{{ item.nota }}</td>
                             <td>{{ item.matricula }}</td>
