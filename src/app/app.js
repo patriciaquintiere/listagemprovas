@@ -21,7 +21,6 @@ app.controller('appController',['$scope','$http','$location', function($scope, $
         });
     };
 
-    $scope.tipos = '';
     // salva no click tipo da prova
     $scope.getSimuladoByTipo = function(itemSimulado,tipo){
         $scope.search.simulado = itemSimulado;
@@ -30,6 +29,11 @@ app.controller('appController',['$scope','$http','$location', function($scope, $
 
     /////////// FIM MENU
 
+
+    // SORT function
+    $scope.sortTable = {
+        propName: 'posicao'
+    };
     /////////// LISTA TABELA PROVAS
     var listaProva = function() {
         $http ({
@@ -37,6 +41,8 @@ app.controller('appController',['$scope','$http','$location', function($scope, $
             url: 'app/data/listaprovas.json'
         }).then(function (response){
             $scope.provas = response.data;
+            // sort da tabela
+            $scope.provas = orderBy($scope.provas,$scope.sortTable.propName)
         }).catch (function (response){
             if(response.status == 404){
                 console.log('erro');
