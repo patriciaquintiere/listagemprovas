@@ -32,6 +32,12 @@ gulp.task('copy-data-json',function(){
         .pipe(gulp.dest('dist/app/data/'));
 });
 
+// copy files data
+gulp.task('copy-templates',function(){
+    return gulp.src('src/app/template/*')
+        .pipe(gulp.dest('dist/app/template/'));
+});
+
 // Converts Sass to CSS with gulp-sass
 gulp.task('sass', function(){
     return gulp.src('src/assets/scss/*.scss')
@@ -67,7 +73,7 @@ gulp.task('watch', ['browserSync', 'sass'], function (){
 });
 
 // Minify Task
-gulp.task('build', ['useref','minImage'], function(){
+gulp.task('build', ['useref','minImage','copy-templates'], function(){
     //gulp.src(['src/*.png','src/*.ico',]).pipe(gulp.dest('dist'));
 });
 
