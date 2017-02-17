@@ -44,13 +44,12 @@
                         <nav>
                             <ul class="listmenu__provas">
                                 <li>Simulados de 2008</li>
-                                <li ng-repeat="itens in simulados">
-                                    <!-- link prova simulado -->
-                                    <a href="javascript:void(0)">{{ itens.nome }}</a>
-                                    <!-- link provas objetivas e finais -->
-                                    <div ng-repeat="item in itens.provas" class="listmenu__provas--tipo">
-                                        <a href="javascript:void(0)" ng-click="tipoSimulado(itens.nome,item.tipo)">prova {{ item.tipo }}</a>
+                                <li ng-repeat="item in simulados">
+                                    <div class="listmenu__provas--simulados">
+                                        Simulado {{ item.simulado }}
                                     </div>
+                                    <a href="#" ng-click="getSimuladoByTipo(item.simulado,'objetiva')">prova objetiva</a>
+                                    <a href="#" ng-click="getSimuladoByTipo(item.simulado,'final')">prova final</a>
                                 </li>
                             </ul>
                         </nav>
@@ -59,27 +58,40 @@
                 <!-- filtro -->
                 <div class="menu__filter col-lg-8 col-xs-12">
                     <div class="menu__filter--content filter">
-                        <h2><span class="">{{ tipoNum }}</span> - <span class="">{{ tipoProva }}</span></h2>
+                        <h2><span class="">Simulado {{ search.simulado }} </span> - <span class="">Prova {{ search.tipo }}</span></h2>
                         <p>
                             Os resultados dos simulado são atualizados diariamente, na medida em que os cartões-resposta e as provas discursivas vão sendo processados.
                         </p>
                         <p>Através dos filtros, você poderá criar rankings personalizados, por <span>Especialidade, <span>Turma</span>(Curso) e <span>Unidade</span>(Cidade).</p>
                         <!-- matricula -->
                         <div class="filter__register">
-                            <p>Entre com sua matrícula:</p> <input type="text" /><button type="button">procurar</button>
-                            <p class="filter__register-erro"></p>
+                            <form ng-submit="search.matricula = matricula">
+                                <p>Entre com sua matrícula:</p>
+                                <input type="text" ng-model="matricula" />
+                                <button type="submit">procurar</button>
+                                <p class="filter__register-erro"></p>
+                            </form>
                         </div>
+
                         <!-- filtro provas -->
                         <div class="filter__parameters">
                             <p>Filtrar por:</p>
-                            <select>
+                            <select ng-model="search.especialidade">
                                 <option value="">Especialidades - TODAS</option>
+                                <option value="clínica geral">Clínica Geral</option>
+                                <option value="clínica médica">Clínica Médica</option>
                             </select>
-                            <select>
+                            <select ng-model="search.filial">
                                 <option value="">Filiais - TODAS</option>
+                                <option value="São Paulo(SP)">São Paulo(SP)</option>
+                                <option value="Salvador(SP)">Salvador(BA)</option>
+                                <option value="Curitiba(PR)">Curitiba(PR)</option>
                             </select>
-                            <select>
+                            <select ng-model="search.turma">
                                 <option value="">Turmas - TODAS</option>
+                                <option value="2008 MEDGRUPO CURITIBA - Turma A/2008 CURITIBA">2008 MEDGRUPO CURITIBA - Turma A/2008 CURITIBA</option>
+                                <<option value="2008 MEDGRUPO SALVADOR - Turma A/2008 SALVADOR">2008 MEDGRUPO SALVADOR - Turma A/2008 SALVADOR</option>
+                                <<option value="2008 MEDGRUPO SÃO PAULO - Turma A/2008 SÃO PAULO">2008 MEDGRUPO SÃO PAULO - Turma A/2008 SÃO PAULO</option>
                             </select>
                         </div>
                     </div>
@@ -100,7 +112,28 @@
                     </div>
                 </div>
                 <!-- tabela -->
-                <table-simulado></table-simulado>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Posição</td>
+                            <td>Nota</td>
+                            <td>Matrícula</td>
+                            <td>Especialidade</td>
+                            <td>Turma</td>
+                            <td>Filial</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in provas | filter:search">
+                            <td>{{ item.posicao }}º</td>
+                            <td>{{ item.nota }}</td>
+                            <td>{{ item.matricula }}</td>
+                            <td>{{ item.especialidade }}</td>
+                            <td>{{ item.turma }}</td>
+                            <td>{{ item.filial }}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </section>
         <script src="assets/js/angular.min.js"></script>
