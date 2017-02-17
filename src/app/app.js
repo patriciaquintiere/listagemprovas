@@ -1,9 +1,9 @@
-var app = angular.module('app', []);
+var app = angular.module('app', ['angularUtils.directives.dirPagination']);
 app.controller('appController',['$scope','$http','$location', function($scope, $http, $location){
 
     // principais filtros
     $scope.search = {
-        simulado: 2,
+        simulado: 1,
         tipo: 'objetiva'
     };
 
@@ -34,7 +34,12 @@ app.controller('appController',['$scope','$http','$location', function($scope, $
     $scope.sortTable = {
         propName: 'posicao'
     };
+
     /////////// LISTA TABELA PROVAS
+    $scope.currentPage = 1;
+
+    $scope.pageSize = 5;
+
     var listaProva = function() {
         $http ({
             method: 'GET',

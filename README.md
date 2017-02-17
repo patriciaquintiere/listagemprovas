@@ -10,6 +10,8 @@ Abaixo segue todas as necessárias para rodar o app na versão de desenvolviment
 * Node.js
 * NPM
 * Gulp (sudo npm install -g gulp)
+* Angularj JS 1.6
+* Diretiva para paginação (ainda em teste) https://github.com/michaelbromley/angularUtils/tree/master/src/directives/pagination
 
 Para iniciar o projeto, utilize o comando `npm install` para instalar as demais dependências abaixo:
 * angular

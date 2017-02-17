@@ -121,31 +121,36 @@
                     </div>
                 </div>
                 <!-- tabela -->
-                <table>
-                    <thead>
-                        <tr>
-                            <td>Posição</td>
-                            <td>Nota</td>
-                            <td>Matrícula</td>
-                            <td>Especialidade</td>
-                            <td>Turma</td>
-                            <td>Filial</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="item in provas | filter:search | orderBy: sortTable.propName">
-                            <td>{{ item.posicao }}º</td>
-                            <td>{{ item.nota }}</td>
-                            <td>{{ item.matricula }}</td>
-                            <td>{{ item.especialidade }}</td>
-                            <td>{{ item.turma }}</td>
-                            <td>{{ item.filial }}</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <!-- tag temporaria enquanto nao tem formatacao -->
+                <div class="temp-container-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Posição</th>
+                                <th>Nota</th>
+                                <th>Matrícula</th>
+                                <th>Especialidade</th>
+                                <th>Turma</th>
+                                <th>Filial</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr dir-paginate="item in provas | itemsPerPage: pageSize | filter:search | orderBy: sortTable.propName" current-page="currentPage">
+                                <td>{{ item.posicao }}º</td>
+                                <td>{{ item.nota }}</td>
+                                <td>{{ item.matricula }}</td>
+                                <td>{{ item.especialidade }}</td>
+                                <td>{{ item.turma }}</td>
+                                <td>{{ item.filial }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="app/template/dirPagination.tpl.html"></dir-pagination-controls>
             </div>
         </section>
         <script src="app/angular.min.js"></script>
+        <script src="app/dirPagination.min.js"></script>
         <script src="app/scripts.min.js"></script>
     </body>
 </html>

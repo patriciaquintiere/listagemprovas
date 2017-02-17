@@ -1076,7 +1076,7 @@ output {
 body {
   background-image: url("../../assets/images/bkg-linhas.svg");
   background-color: transparent;
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: 0 80px;
   font-family: Arial, sans-serif; }
@@ -1158,51 +1158,47 @@ header a {
       float: left; } }
 
 /**
-* @subsection BLOCO
+* @subsection TITLES
 */
 h2 {
   margin: 30px 0; }
 
 /**
-* @subsection FORM
+* @subsection TABLE
 */
-.text-muted {
-  color: #999;
-  font-weight: normal; }
-
-small {
-  display: block;
-  height: 60px;
-  padding: 10px;
+.temp-container-table {
+  background: #fafafa;
+  min-height: 300px;
+  padding: 20px;
   width: 100%; }
+
+table {
+  width: 100%; }
+  table td {
+    padding: 5px; }
+
+table, td, th {
+  border: 1px solid #ccc;
+  border-collapse: collapse; }
+
+/**
+* @subsection PAGINATION
+*/
+.pagination {
+  clear: both;
+  width: 100%; }
+  .pagination li {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    width: 30px; }
 
 @media (max-device-width: 768px) {
   .col-xs-12 {
     flex: 0 0 100%; }
-  .linkfollow {
-    top: 60px; }
   section h2, section h3, section .form-control, section input[type=submit] {
     font-size: 36px; }
   section small, section .formrepositorio__msg-erro {
     font-size: 30px;
     line-height: 30px;
-    height: 90px; }
-  section .formrepositorio__inside .result-reposit > * {
-    font-size: 32px; }
-  section .formrepositorio__inside .result-reposit ul li.formrepositorio__item-reposit {
-    font-size: 16px; }
-  section .formrepositorio__inside .result-reposit > ul > li ul > li > span {
-    font-size: 32px; }
-  section .formrepositorio__inside .result-reposit > ul > li ul > li > p {
-    font-size: 26px; }
-  section .formrepositorio__inside .result-reposit > ul > li ul > li > a,
-  section .formrepositorio__inside .result-reposit > ul > li ul > li > input {
-    font-size: 30px; }
-  section .formrepositorio__inside .result-reposit > ul > li ul > li > span {
-    width: 170px; }
-  section .formrepositorio__inside .result-reposit > ul > li ul > li > p,
-  section .formrepositorio__inside .result-reposit > ul > li ul > li > a,
-  section .formrepositorio__inside .result-reposit > ul > li ul > li > input {
-    width: calc(100% - 180px); }
-  section .formrepositorio__inside .result-reposit > ul > li ul > li > input {
-    height: 40px; } }
+    height: 90px; } }
