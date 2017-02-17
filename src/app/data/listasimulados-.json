@@ -50,8 +50,8 @@
                                 "posicao": 1,
                                 "nota": 40,
                                 "especialidade": "clínica geral",
-                                "turma": "2008 MEDGRUPO RIO DE JANEIRO - Turma A/2008 RIO DE JANEIRO",
-                                "filial": "Rio de Janeiro(BA)"
+                                "turma": "2008 MEDGRUPO SÃO PAULO - Turma A/2008 SÃO PAULO",
+                                "filial": "São Paulo(SP)"
                             }
                     },
                     {
@@ -131,8 +131,8 @@
                                 "posicao": 1,
                                 "nota": 40,
                                 "especialidade": "clínica geral",
-                                "turma": "2008 MEDGRUPO RIO DE JANEIRO - Turma A/2008 RIO DE JANEIRO",
-                                "filial": "Rio de Janeiro(BA)"
+                                "turma": "2008 MEDGRUPO SALVADOR - Turma A/2008 SALVADOR",
+                                "filial": "Salvador(BA)"
                             }
                     },
                     {
@@ -153,7 +153,7 @@
                                 "posicao": 3,
                                 "nota": 76,
                                 "especialidade": "clínica médica",
-                                "turma": "2008 MEDGRUPO SALVADOR PAULO - Turma A/2008 SALVADOR",
+                                "turma": "2008 MEDGRUPO SALVADOR - Turma A/2008 SALVADOR",
                                 "filial": "Salvador(BA)"
                             }
                     }
@@ -196,7 +196,7 @@
                                 "posicao": 3,
                                 "nota": 76,
                                 "especialidade": "clínica geral",
-                                "turma": "2008 MEDGRUPO SÃO PAULO - Turma A/2008 SÃO PAULO",
+                                "turma": "2008 MEDGRUPO SALVADOR - Turma A/2008 SALVADOR",
                                 "filial": "Salvador(BA)"
                             }
                     }
