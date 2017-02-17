@@ -15,7 +15,6 @@ app.controller('appController',['$scope','$http','$location', function($scope, $
             url: 'app/data/listasimulados.json'
         }).then(function (response){
             $scope.simulados = response.data;
-
         }).catch (function (response){
             if(response.status == 404){
             }
@@ -39,10 +38,8 @@ app.controller('appController',['$scope','$http','$location', function($scope, $
         }).then(function (response){
             $scope.provas = response.data;
         }).catch (function (response){
-            console.log('deu merda');
-            console.log(response);
             if(response.status == 404){
-                console.log('deu erro');
+                console.log('erro');
             }
         });
     };

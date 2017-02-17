@@ -24,7 +24,13 @@ gulp.task('browserSync',function(){
             index: "src/index.html"
         }
     });
-})
+});
+
+// copy files data
+gulp.task('copy-data-json',function(){
+    return gulp.src('src/app/data/*.json')
+        .pipe(gulp.dest('dist/app/data/'));
+});
 
 // Converts Sass to CSS with gulp-sass
 gulp.task('sass', function(){
