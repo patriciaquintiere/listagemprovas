@@ -1358,16 +1358,44 @@ h2 {
 */
 .simulados__table {
   clear: both;
-  min-height: 270px;
   width: 100%; }
 
-table {
+.simulados__table table {
+  border-collapse: separate;
+  border-spacing: 10px 0;
+  margin-bottom: 30px;
   width: 100%; }
-  table td {
+  .simulados__table table td {
     padding: 5px; }
+  .simulados__table table th {
+    background: #f1f1f1; }
+  .simulados__table table td, .simulados__table table th {
+    padding: 5px 10px; }
+  .simulados__table table td:nth-child(even) {
+    background: #FAFAFA; }
+  .simulados__table table td:first-child,
+  .simulados__table table th:first-child {
+    border: 1px solid #acc0ce;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 0; }
+  .simulados__table table td:last-child,
+  .simulados__table table th:last-child {
+    border: 1px solid #acc0ce;
+    border-top: 0;
+    border-left: 0;
+    border-bottom: 0; }
+  .simulados__table table th:first-child {
+    border-top: 1px solid #acc0ce; }
+  .simulados__table table tr:last-child td:first-child {
+    border-bottom: 1px solid #acc0ce; }
+  .simulados__table table th:last-child,
+  .simulados__table table tr:first-child th {
+    border-top: 1px solid #acc0ce; }
+  .simulados__table table tr:last-child td {
+    border-bottom: 1px solid #acc0ce; }
 
 table, td, th {
-  border: 1px solid #ccc;
   border-collapse: collapse; }
 
 @media (max-device-width: 768px) {

@@ -349,18 +349,56 @@ h2{
 */
 .simulados__table{
     clear: both;
-    min-height: 270px;
     width: 100%;
 }
-table{
+.simulados__table table{
+    border-collapse: separate;
+    border-spacing: 10px 0;
+    margin-bottom: 30px;
     width: 100%;
 
     td{
         padding: 5px;
     }
+    th{
+        background: $gray-background;
+    }
+    td, th{
+        padding: 5px 10px;
+    }
+    td:nth-child(even){
+        background: $gray-light-background;
+    }
+    td:first-child,
+    th:first-child{
+        border: 1px solid $blue;
+        border-top: 0;
+        border-right: 0;
+        border-bottom: 0;
+    }
+    td:last-child,
+    th:last-child{
+        border: 1px solid $blue;
+        border-top: 0;
+        border-left: 0;
+        border-bottom: 0;
+    }
+    th:first-child{
+        border-top: 1px solid $blue;
+    }
+    tr:last-child td:first-child{
+        border-bottom: 1px solid $blue;
+    }
+    th:last-child,
+    tr:first-child th{
+        border-top: 1px solid $blue;
+    }
+    tr:last-child td{
+        border-bottom: 1px solid $blue;
+    }
+
 }
 table,td,th{
-    border: 1px solid #ccc;
     border-collapse: collapse;
 }
 
