@@ -27,9 +27,8 @@ body{
     background-size: contain;
     background-repeat: no-repeat;
     background-position: 0 80px;
-    font-family: Arial, sans-serif;
 }
-*{font-family: 'OfficinaSerifStd-Bold', sans-serif;}
+*{font-family: 'Roboto', sans-serif;}
 ul{
     list-style: none;
     padding: 0;
@@ -40,7 +39,6 @@ ul{
 */
 [class*="__wrapper"]{
   @include make-container();
-  max-width: 960px;
   margin: 0 auto;
 }
 [class*="__inside"]{
@@ -53,14 +51,34 @@ ul{
     padding: 20px;
 }
 section{
-  h2{
-    text-align: center;
-  }
-  &:after {
-    display: table;
-    content: " ";
-    clear: both;
-  }
+  @include clearfix;
+}
+.btn{
+    background: #444;
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+    line-height: 1em;
+    padding: 0;
+    margin: 0;
+}
+
+/**
+* @section HEADER TITLE
+*/
+.titlepage__wrapper{
+    max-width: 1040px;
+
+    .logo-simulados img{min-width: 250px;}
+    .logo-medgrupo img{min-width: 330px;}
+}
+
+/**
+* @section SECTION WRAPPER
+*/
+.menu__wrapper,
+.simulados__wrapper{
+    max-width: 920px;
 }
 
 /**
@@ -99,7 +117,17 @@ header{
 }
 
 /**
-* @section MENU
+* @subsection BOTOES ACESSIBILIDADE
+*/
+.access-buttons button{
+    font-weight: bold;
+    padding: 0.2em;
+    margin: 0 0 0.5em 0;
+}
+
+
+/**
+* @subsection LISTA MENU
 */
 .listmenu__provas{
     li:first-of-type{
@@ -114,14 +142,18 @@ header{
         &.sel{
             height: 4.6em;
             overflow: visible;
+
+            button:before{transform: rotate(90deg);}
         }
 
         .listmenu__provas--simulados{
             background: transparent;
             border: 0;
+            color: $gray-light;
             cursor: pointer;
             display: inline-block;
-            font-size: 0.75em;
+            font-size: 1em;
+            line-height: 1em;
             outline: transparent;
             position: relative;
             vertical-align: middle;
@@ -131,9 +163,10 @@ header{
                 border: 0;
             }
             &:before{
-                content: '\2023';
+                content: '\25BA';
+                color: $blue-gray;
                 display: inline-block;
-                font-size: 1.6em;
+                font-size: 0.7em;
                 position: relative;
                 vertical-align: middle;
             }
@@ -141,27 +174,182 @@ header{
 
         a{
             display: block;
-            color: $gray;
-            font-size: 0.8em;
+            color: $gray-text;
+
             margin: 0 0 0 1.8em;
         }
     }
 }
 
+
 /**
 * @subsection TITLES
 */
 h2{
-    margin: 30px 0;
+    margin: 0 0 20px 0;
+    text-align: left;
+    font-size: 1.8em;
+    text-transform: uppercase;
+}
+
+/**
+* @subsection FILTERS
+*/
+.filter__register{
+    background: $blue-light;
+    padding: 15px 10px;
+    margin-bottom: 30px;
+
+    form{
+
+        input{
+            border: 1px solid $blue;
+            width: 100px;
+        }
+        button{
+            @extend .btn;
+            margin: 0;
+            padding: 0.3em;
+        }
+        p{
+            font-weight: bold;
+        }
+
+        *{
+            display: inline-block;
+            margin-bottom: 0;
+            margin-top: 0;
+            vertical-align: middle;
+        }
+    }
+}
+
+/**
+* @subsection SELECT FILTER
+*/
+.filter__parameters{
+    > [class*="col"]{padding: 0 5px;}
+    select{
+        background: $gray-light-background;
+        border: 1px solid $blue;
+        width: 100%;
+    }
+}
+
+/**
+* @subsection FILTER INFO
+*/
+.simulados__filter{
+    @include clearfix;
+
+    a{color: $gray-light;}
+
+    .simulados__filter__summary--share{text-align: left;}
+    .simulados__filter__summary--info{text-align: right;}
+    [class*="col"]{
+        padding: 0 5px;
+    }
+
+    .simulados__filter__pagination__inside{
+        background: $gray-background;
+        padding: 10px 5px;
+
+        > *{margin: 0;}
+    }
+}
+
+
+/**
+* @subsubsection PAGINATION
+*/
+.pagination{
+    @media (min-width: 768px){
+        width: 10.5em;
+    }
+    padding: 0 5px;
+    width: 100%;
+
+    > *{
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    p, span{margin: 0;}
+
+    input[type="text"]{
+        border: 1px solid $blue;
+        line-height: 1.2em;
+        width: 90px;
+    }
+
+    button{
+        line-height: 1.2em;
+        margin: 0 3px;
+        padding: 0;
+        width: 40px;
+
+        span{display: none;}
+        &:before{
+            font-size: 0.8em;
+        }
+
+        &.prev:before{
+            content: '\25C4';
+        }
+        &.next:before{
+            content: '\25BA';
+        }
+    }
+
+    li{
+        display: inline-block;
+        vertical-align: middle;
+        text-align: center;
+        width: 30px;
+    }
+}
+.pagination-buttons{
+    a{
+        display: inline-block;
+        text-decoration: underline;
+        margin: 0 5px;
+
+        &:hover{
+            text-decoration: none;
+        }
+    }
+}
+
+/**
+* @subsubsection ORDERBY
+*/
+.order{
+    @media (min-width: 768px){
+        width: 12.5em;
+    }
+
+    > * {
+        display: inline-block;
+        margin: 0;
+        vertical-align: middle;
+    }
+    padding: 0 5px;
+    width: 100%;
+}
+.download-table{
+    @media (min-width: 768px){
+        float: right;
+        text-align: right;
+        width: 14.5em;
+    }
 }
 
 /**
 * @subsection TABLE
 */
-.temp-container-table{
-    background: #fafafa;
+.simulados__table{
+    clear: both;
     min-height: 300px;
-    padding: 20px;
     width: 100%;
 }
 table{
@@ -174,21 +362,6 @@ table{
 table,td,th{
     border: 1px solid #ccc;
     border-collapse: collapse;
-}
-
-/**
-* @subsection PAGINATION
-*/
-.pagination{
-    clear: both;
-    width: 100%;
-
-    li{
-        display: inline-block;
-        vertical-align: middle;
-        text-align: center;
-        width: 30px;
-    }
 }
 
 

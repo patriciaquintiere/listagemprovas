@@ -1066,11 +1066,10 @@ body {
   background-color: transparent;
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: 0 80px;
-  font-family: Arial, sans-serif; }
+  background-position: 0 80px; }
 
 * {
-  font-family: 'OfficinaSerifStd-Bold', sans-serif; }
+  font-family: 'Roboto', sans-serif; }
 
 ul {
   list-style: none;
@@ -1084,7 +1083,6 @@ ul {
   margin-right: auto;
   padding-left: 15px;
   padding-right: 15px;
-  max-width: 960px;
   margin: 0 auto; }
   [class*="__wrapper"]::after {
     content: "";
@@ -1121,13 +1119,36 @@ ul {
 [class*="__block"] {
   padding: 20px; }
 
-section h2 {
-  text-align: center; }
-
-section:after {
+section::after {
+  content: "";
   display: table;
-  content: " ";
   clear: both; }
+
+.btn, .filter__register form button {
+  background: #444;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  line-height: 1em;
+  padding: 0;
+  margin: 0; }
+
+/**
+* @section HEADER TITLE
+*/
+.titlepage__wrapper {
+  max-width: 1040px; }
+  .titlepage__wrapper .logo-simulados img {
+    min-width: 250px; }
+  .titlepage__wrapper .logo-medgrupo img {
+    min-width: 330px; }
+
+/**
+* @section SECTION WRAPPER
+*/
+.menu__wrapper,
+.simulados__wrapper {
+  max-width: 920px; }
 
 /**
 * @section LOGO
@@ -1152,7 +1173,15 @@ header a {
       float: left; } }
 
 /**
-* @section MENU
+* @subsection BOTOES ACESSIBILIDADE
+*/
+.access-buttons button {
+  font-weight: bold;
+  padding: 0.2em;
+  margin: 0 0 0.5em 0; }
+
+/**
+* @subsection LISTA MENU
 */
 .listmenu__provas li:first-of-type {
   font-size: 1em; }
@@ -1166,42 +1195,170 @@ header a {
   .listmenu__provas li.sel {
     height: 4.6em;
     overflow: visible; }
+    .listmenu__provas li.sel button:before {
+      transform: rotate(90deg); }
   .listmenu__provas li .listmenu__provas--simulados {
     background: transparent;
     border: 0;
+    color: #666;
     cursor: pointer;
     display: inline-block;
-    font-size: 0.75em;
+    font-size: 1em;
+    line-height: 1em;
     outline: transparent;
     position: relative;
     vertical-align: middle; }
     .listmenu__provas li .listmenu__provas--simulados:focus {
       border: 0; }
     .listmenu__provas li .listmenu__provas--simulados:before {
-      content: '\2023';
+      content: '\25BA';
+      color: #475775;
       display: inline-block;
-      font-size: 1.6em;
+      font-size: 0.7em;
       position: relative;
       vertical-align: middle; }
   .listmenu__provas li a {
     display: block;
     color: #333;
-    font-size: 0.8em;
     margin: 0 0 0 1.8em; }
 
 /**
 * @subsection TITLES
 */
 h2 {
-  margin: 30px 0; }
+  margin: 0 0 20px 0;
+  text-align: left;
+  font-size: 1.8em;
+  text-transform: uppercase; }
+
+/**
+* @subsection FILTERS
+*/
+.filter__register {
+  background: #EAEEF6;
+  padding: 15px 10px;
+  margin-bottom: 30px; }
+  .filter__register form input {
+    border: 1px solid #acc0ce;
+    width: 100px; }
+  .filter__register form button {
+    margin: 0;
+    padding: 0.3em; }
+  .filter__register form p {
+    font-weight: bold; }
+  .filter__register form * {
+    display: inline-block;
+    margin-bottom: 0;
+    margin-top: 0;
+    vertical-align: middle; }
+
+/**
+* @subsection SELECT FILTER
+*/
+.filter__parameters > [class*="col"] {
+  padding: 0 5px; }
+
+.filter__parameters select {
+  background: #FAFAFA;
+  border: 1px solid #acc0ce;
+  width: 100%; }
+
+/**
+* @subsection FILTER INFO
+*/
+.simulados__filter::after {
+  content: "";
+  display: table;
+  clear: both; }
+
+.simulados__filter a {
+  color: #666; }
+
+.simulados__filter .simulados__filter__summary--share {
+  text-align: left; }
+
+.simulados__filter .simulados__filter__summary--info {
+  text-align: right; }
+
+.simulados__filter [class*="col"] {
+  padding: 0 5px; }
+
+.simulados__filter .simulados__filter__pagination__inside {
+  background: #f1f1f1;
+  padding: 10px 5px; }
+  .simulados__filter .simulados__filter__pagination__inside > * {
+    margin: 0; }
+
+/**
+* @subsubsection PAGINATION
+*/
+.pagination {
+  padding: 0 5px;
+  width: 100%; }
+  @media (min-width: 768px) {
+    .pagination {
+      width: 10.5em; } }
+  .pagination > * {
+    display: inline-block;
+    vertical-align: middle; }
+  .pagination p, .pagination span {
+    margin: 0; }
+  .pagination input[type="text"] {
+    border: 1px solid #acc0ce;
+    line-height: 1.2em;
+    width: 90px; }
+  .pagination button {
+    line-height: 1.2em;
+    margin: 0 3px;
+    padding: 0;
+    width: 40px; }
+    .pagination button span {
+      display: none; }
+    .pagination button:before {
+      font-size: 0.8em; }
+    .pagination button.prev:before {
+      content: '\25C4'; }
+    .pagination button.next:before {
+      content: '\25BA'; }
+  .pagination li {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    width: 30px; }
+
+.pagination-buttons a {
+  display: inline-block;
+  text-decoration: underline;
+  margin: 0 5px; }
+  .pagination-buttons a:hover {
+    text-decoration: none; }
+
+/**
+* @subsubsection ORDERBY
+*/
+.order {
+  padding: 0 5px;
+  width: 100%; }
+  @media (min-width: 768px) {
+    .order {
+      width: 12.5em; } }
+  .order > * {
+    display: inline-block;
+    margin: 0;
+    vertical-align: middle; }
+
+@media (min-width: 768px) {
+  .download-table {
+    float: right;
+    text-align: right;
+    width: 14.5em; } }
 
 /**
 * @subsection TABLE
 */
-.temp-container-table {
-  background: #fafafa;
+.simulados__table {
+  clear: both;
   min-height: 300px;
-  padding: 20px;
   width: 100%; }
 
 table {
@@ -1212,18 +1369,6 @@ table {
 table, td, th {
   border: 1px solid #ccc;
   border-collapse: collapse; }
-
-/**
-* @subsection PAGINATION
-*/
-.pagination {
-  clear: both;
-  width: 100%; }
-  .pagination li {
-    display: inline-block;
-    vertical-align: middle;
-    text-align: center;
-    width: 30px; }
 
 @media (max-device-width: 768px) {
   .col-xs-12 {
