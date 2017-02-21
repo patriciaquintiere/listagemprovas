@@ -109,8 +109,8 @@
                     <div class="simulados__filter--pag">
                         <div class="pagination">
                             <p>
-                                <button type="button" ng-click="setPage(currentPage-1)" ng-disabled="currentPage == 1 ? true : false">1ª</button> ao
-                                <button type="button" ng-click="setPage(currentPage+1)" ng-disabled="currentPage >= pages.length ? true : false">{{pages.length}}ª</button>
+                                <span>1ª</span><button type="button" ng-click="setPage(currentPage-1)" ng-disabled="currentPage == 1 ? true : false"><</button> ao
+                                <button type="button" ng-click="setPage(currentPage+1)" ng-disabled="currentPage >= pages.length ? true : false">></button><span>{{pages.length}}ª</span>
                             </p>
                         </div>
                         <div class="pagination">
