@@ -177,6 +177,33 @@
                             </tr>
                         </tbody>
                     </table>
+
+                </div>
+                <div class="simulados__filter col-lg-12">
+                    <div class="simulados__filter__pagination__inside">
+                        <div class="pagination col-xs-12">
+                            <p>
+                                <span class="label-pag">1ª ao {{pages.length}}ª</span>
+                                <button class="prev" type="button" ng-click="setPage(currentPage-1)" ng-disabled="currentPage == 1 ? true : false"><span><</span></button>
+                                <button class="next" type="button" ng-click="setPage(currentPage+1)" ng-disabled="currentPage >= pages.length ? true : false"><span>></span></button>
+                            </p>
+                        </div>
+                        <div class="pagination col-xs-12">
+                            <p>ir para:</p>
+                            <input type="text" ng-model="currentPage" />
+                        </div>
+                        <div class="order col-xs-12"><p>mostrar:</p>
+                            <select ng-model="sortTable.propName" ng-change="listaProva()">
+                                <option value="posicao" selected>posicao</option>
+                                <option value="nota">nota</option>
+                                <option value="matricula">matrícula</option>
+                                <option value="espcialidade">especialidade</option>
+                                <option value="turma">turma</option>
+                                <option value="filial">filial</option>
+                            </select>
+                        </div>
+                        <div class="download-table col-xs-12"><a href="javascript:void(0)">baixar planilha completa</a></div>
+                    </div>
                 </div>
             </div>
         </section>
