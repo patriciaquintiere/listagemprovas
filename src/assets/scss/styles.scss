@@ -99,6 +99,56 @@ header{
 }
 
 /**
+* @section MENU
+*/
+.listmenu__provas{
+    li:first-of-type{
+        font-size: 1em;
+        &:before{display: none;}
+    }
+    li{
+        height: 1.4em;
+        overflow: hidden;
+        transition: height 0.4s;
+
+        &.sel{
+            height: 4.6em;
+            overflow: visible;
+        }
+
+        .listmenu__provas--simulados{
+            background: transparent;
+            border: 0;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 0.75em;
+            outline: transparent;
+            position: relative;
+            vertical-align: middle;
+
+
+            &:focus{
+                border: 0;
+            }
+            &:before{
+                content: '\2023';
+                display: inline-block;
+                font-size: 1.6em;
+                position: relative;
+                vertical-align: middle;
+            }
+        }
+
+        a{
+            display: block;
+            color: $gray;
+            font-size: 0.8em;
+            margin: 0 0 0 1.8em;
+        }
+    }
+}
+
+/**
 * @subsection TITLES
 */
 h2{

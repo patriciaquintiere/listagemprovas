@@ -1,5 +1,5 @@
-var app = angular.module('app', ['angularUtils.directives.dirPagination']);
-app.controller('appController',['$scope','$http','$location', function($scope, $http, $location){
+var app = angular.module('app', []);
+app.controller('appController',['$scope','$http','$location', '$filter', function($scope, $http, $location, $filter){
 
     // principais filtros
     $scope.search = {
@@ -25,6 +25,7 @@ app.controller('appController',['$scope','$http','$location', function($scope, $
     $scope.getSimuladoByTipo = function(itemSimulado,tipo){
         $scope.search.simulado = itemSimulado;
         $scope.search.tipo = tipo;
+        $scope.listaProva()
     };
 
     /////////// FIM MENU
@@ -35,28 +36,54 @@ app.controller('appController',['$scope','$http','$location', function($scope, $
         propName: 'posicao'
     };
 
-    /////////// LISTA TABELA PROVAS
-    $scope.currentPage = 1;
+    /////////// LISTA TABELA PROVAS E PAGINACAO
+    $scope.itensPerPage = 6;
 
-    $scope.pageSize = 5;
+    $scope.listaProva = function() {
+        // pagina atual - paginacao
+        $scope.currentPage = 1;
 
-    var listaProva = function() {
         $http ({
             method: 'GET',
             url: 'app/data/listaprovas.json'
         }).then(function (response){
             $scope.provas = response.data;
+            // filtro da tabela
+            $scope.provas = $filter('filter')($scope.provas, $scope.search)
+
             // sort da tabela
-            $scope.provas = orderBy($scope.provas,$scope.sortTable.propName)
+            $scope.provas = $filter('orderBy')($scope.provas, $scope.sortTable.propName)
+
+            // total de provas fitradas
+            $scope.totalItens = $scope.provas.length;
+            // calculo para obter quantidade de páginas
+            $scope.totalPages = Math.floor($scope.totalItens / $scope.itensPerPage);
+            if($scope.totalItens % $scope.itensPerPage > 0){
+                $scope.totalPages++;
+            }
+            $scope.pages = [];
+            for(i = 0; i < $scope.totalPages; i++){
+                $scope.pages.push(i+1);
+            }
+            console.log($scope.provas);
         }).catch (function (response){
             if(response.status == 404){
                 console.log('erro');
             }
         });
     };
-    /////////// LISTA TABELA PROVAS
+    // PAGINACAO
+    $scope.setPage = function(page){
+        $scope.currentPage = page;
+    };
+    /////////// LISTA TABELA PROVAS E PAGINACAO
 
+    // MENU
+    $scope.selected = 0;
 
+    $scope.select = function(index) {
+        $scope.selected = index;
+    };
 
     // botoes do tamanho da fonte da pagina
     $scope.fontsizecurrent = 1.0;
@@ -79,7 +106,7 @@ app.controller('appController',['$scope','$http','$location', function($scope, $
 
 
     // inicializando algumas funcoes
-    listaProva();
+    $scope.listaProva();
     listaMenu();
 
 }]);
