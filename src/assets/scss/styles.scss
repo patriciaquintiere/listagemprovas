@@ -357,8 +357,14 @@ h2{
     margin-bottom: 30px;
     width: 100%;
 
+    @media (min-width: 940px){
+        margin-left: -10px;
+        margin-right: -10px;
+        width: calc(100% + 20px);
+    }
+
     td{
-        padding: 5px;
+        height: 4em;
     }
     th{
         background: $gray-background;
@@ -395,6 +401,11 @@ h2{
     }
     tr:last-child td{
         border-bottom: 1px solid $blue;
+    }
+    td:nth-child(4),
+    td:nth-child(5),
+    td:nth-child(6){
+        width: 25%;
     }
 
 }
