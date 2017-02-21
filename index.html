@@ -4,6 +4,7 @@
         <meta charset="utf-8" />
         <link rel="shortcut icon" href="favicon.ico" />
         <title>Listagem de provas de simulados</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link rel="stylesheet" href="assets/css/styles.min.css">
     </head>
     <body id="body" ng-controller="appController">
@@ -32,13 +33,13 @@
         <section class="menu__wrapper">
             <div class="menu__inside">
                 <!-- menu -->
-                <div class="menu__listmenu col-lg-4 col-xs-12">
+                <div class="menu__listmenu col-lg-3 col-xs-12">
                     <div class="menu__listmenu--content">
                         <!-- botoes aumenta fonte -->
                         <div class="access-buttons">
-                            <button type="button" class="icon-inc" ng-click="iconInc()">A+</button>
-                            <button type="button" class="icon-dec" ng-click="iconDec()">A-</button>
-                            <button type="button" class="icon-dec" ng-click="iconFontDefault()">Fonte padrão</button>
+                            <button type="button" class="btn icon-inc" ng-click="iconInc()">A+</button>
+                            <button type="button" class="btn icon-dec" ng-click="iconDec()">A-</button>
+                            <button type="button" class="btn icon-dec" ng-click="iconFontDefault()">Fonte padrão</button>
                         </div>
 
                         <nav>
@@ -58,7 +59,7 @@
                     </div>
                 </div>
                 <!-- filtro -->
-                <div class="menu__filter col-lg-8 col-xs-12">
+                <div class="menu__filter col-lg-9 col-xs-12">
                     <div class="menu__filter--content filter">
                         <h2><span class="">Simulado {{ search.simulado }} </span> - <span class="">Prova {{ search.tipo }}</span></h2>
                         <p>
@@ -70,7 +71,7 @@
                             <form ng-submit="search.matricula = matricula; listaProva()">
                                 <p>Entre com sua matrícula:</p>
                                 <input type="text" ng-model="matricula" />
-                                <button type="submit">procurar</button>
+                                <button type="submit" class="btn">procurar</button>
                                 <p class="filter__register-erro"></p>
                             </form>
                         </div>
@@ -78,23 +79,29 @@
                         <!-- filtro provas -->
                         <div class="filter__parameters">
                             <p>Filtrar por:</p>
-                            <select ng-model="search.especialidade" ng-change="listaProva()">
-                                <option value="">Especialidades - TODAS</option>
-                                <option value="clínica geral">Clínica Geral</option>
-                                <option value="clínica médica">Clínica Médica</option>
-                            </select>
-                            <select ng-model="search.filial" ng-change="listaProva()">
-                                <option value="">Filiais - TODAS</option>
-                                <option value="São Paulo(SP)">São Paulo(SP)</option>
-                                <option value="Salvador(SP)">Salvador(BA)</option>
-                                <option value="Curitiba(PR)">Curitiba(PR)</option>
-                            </select>
-                            <select ng-model="search.turma" ng-change="listaProva()">
-                                <option value="">Turmas - TODAS</option>
-                                <option value="2008 MEDGRUPO CURITIBA - Turma A/2008 CURITIBA">2008 MEDGRUPO CURITIBA - Turma A/2008 CURITIBA</option>
-                                <option value="2008 MEDGRUPO SALVADOR - Turma A/2008 SALVADOR">2008 MEDGRUPO SALVADOR - Turma A/2008 SALVADOR</option>
-                                <option value="2008 MEDGRUPO SÃO PAULO - Turma A/2008 SÃO PAULO">2008 MEDGRUPO SÃO PAULO - Turma A/2008 SÃO PAULO</option>
-                            </select>
+                            <div class="col-lg-4 col-xs-12">
+                                <select ng-model="search.especialidade" ng-change="listaProva()">
+                                    <option value="">Especialidades - TODAS</option>
+                                    <option value="clínica geral">Clínica Geral</option>
+                                    <option value="clínica médica">Clínica Médica</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-4 col-xs-12">
+                                <select ng-model="search.filial" ng-change="listaProva()">
+                                    <option value="">Filiais - TODAS</option>
+                                    <option value="São Paulo(SP)">São Paulo(SP)</option>
+                                    <option value="Salvador(SP)">Salvador(BA)</option>
+                                    <option value="Curitiba(PR)">Curitiba(PR)</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-4 col-xs-12">
+                                <select ng-model="search.turma" ng-change="listaProva()">
+                                    <option value="">Turmas - TODAS</option>
+                                    <option value="2008 MEDGRUPO CURITIBA - Turma A/2008 CURITIBA">2008 MEDGRUPO CURITIBA - Turma A/2008 CURITIBA</option>
+                                    <option value="2008 MEDGRUPO SALVADOR - Turma A/2008 SALVADOR">2008 MEDGRUPO SALVADOR - Turma A/2008 SALVADOR</option>
+                                    <option value="2008 MEDGRUPO SÃO PAULO - Turma A/2008 SÃO PAULO">2008 MEDGRUPO SÃO PAULO - Turma A/2008 SÃO PAULO</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -105,19 +112,25 @@
             <div class="simulados__inside">
                 <!-- filtro -->
                 <div class="simulados__filter col-lg-12">
-                    <p><a href="javascript:void(0)">imprimir</a> | <a href="javascript:void(0)">enviar para um amigo</a></p>
-                    <div class="simulados__filter--pag">
-                        <div class="pagination">
+                    <div class="simulados__filter__summary__inside">
+                        <p class="simulados__filter__summary--share col-lg-6 col-xs-12">
+                            <a href="javascript:void(0)">imprimir</a> | <a href="javascript:void(0)">enviar para um amigo</a>
+                        </p>
+                        <p class="simulados__filter__summary--info col-lg-6 col-xs-12">Foram encontrados {{ provas.length }} registros</p>
+                    </div>
+                    <div class="simulados__filter__pagination__inside">
+                        <div class="pagination col-xs-12">
                             <p>
-                                <span>1ª</span><button type="button" ng-click="setPage(currentPage-1)" ng-disabled="currentPage == 1 ? true : false"><</button> ao
-                                <button type="button" ng-click="setPage(currentPage+1)" ng-disabled="currentPage >= pages.length ? true : false">></button><span>{{pages.length}}ª</span>
+                                <span class="label-pag">1ª ao {{pages.length}}ª</span>
+                                <button class="prev" type="button" ng-click="setPage(currentPage-1)" ng-disabled="currentPage == 1 ? true : false"><span><</span></button>
+                                <button class="next" type="button" ng-click="setPage(currentPage+1)" ng-disabled="currentPage >= pages.length ? true : false"><span>></span></button>
                             </p>
                         </div>
-                        <div class="pagination">
+                        <div class="pagination col-xs-12">
                             <p>ir para:</p>
                             <input type="text" ng-model="currentPage" />
                         </div>
-                        <div class="order"><p>mostrar:</p>
+                        <div class="order col-xs-12"><p>mostrar:</p>
                             <select ng-model="sortTable.propName" ng-change="listaProva()">
                                 <option value="posicao" selected>posicao</option>
                                 <option value="nota">nota</option>
@@ -127,12 +140,19 @@
                                 <option value="filial">filial</option>
                             </select>
                         </div>
-                        <div class="download-table"><a href="javascript:void(0)">baixar planilha completa</a></div>
+                        <div class="download-table col-xs-12"><a href="javascript:void(0)">baixar planilha completa</a></div>
+                    </div>
+                </div>
+                <div class="simulados__filter col-lg-12">
+                    <div class="simulados__filter__pagination__inside">
+                        <div class="pagination-buttons">
+                            <a href="#" ng-repeat="page in pages" ng-click="setPage(page)">Pag {{ page }}</a>
+                        </div>
                     </div>
                 </div>
                 <!-- tabela -->
                 <!-- tag temporaria enquanto nao tem formatacao -->
-                <div class="temp-container-table">
+                <div class="simulados__table">
                     <table>
                         <thead>
                             <tr>
@@ -146,7 +166,7 @@
                         </thead>
                         <tbody>
                             <tr ng-repeat="item in provas | limitTo : itensPerPage : currentPage * itensPerPage - itensPerPage" >
-                                <td>{{ item.posicao }}º</td>{{ currentPage}}
+                                <td>{{ item.posicao }}º</td>
                                 <td>{{ item.nota }}</td>
                                 <td>{{ item.matricula }}</td>
                                 <td>{{ item.especialidade }}</td>
@@ -155,9 +175,6 @@
                             </tr>
                         </tbody>
                     </table>
-                </div>
-                <div class="pagination">
-                    <a href="#" ng-repeat="page in pages" ng-click="setPage(page)">Pag {{ page }}</a>
                 </div>
             </div>
         </section>
