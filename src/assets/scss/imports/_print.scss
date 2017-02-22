@@ -1,0 +1,11 @@
+@media print{
+    .access-buttons,
+    nav,
+    .menu__filter--content.filter p,
+    .menu__filter--content.filter .filter__register,
+    .menu__filter--content.filter .filter__parameters,
+    .simulados__filter{
+        display: none;
+    }
+    table { display: block; page-break-before: always;  }
+}

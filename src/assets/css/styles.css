@@ -1353,6 +1353,10 @@ h2 {
     text-align: right;
     width: 14.5em; } }
 
+.download-table a {
+  background: url("../../assets/images/ico-export-planilha.png") no-repeat 0 3px transparent;
+  padding-left: 20px; }
+
 /**
 * @subsection TABLE
 */
@@ -1416,3 +1420,15 @@ table, td, th {
     font-size: 30px;
     line-height: 30px;
     height: 90px; } }
+
+@media print {
+  .access-buttons,
+  nav,
+  .menu__filter--content.filter p,
+  .menu__filter--content.filter .filter__register,
+  .menu__filter--content.filter .filter__parameters,
+  .simulados__filter {
+    display: none; }
+  table {
+    display: block;
+    page-break-before: always; } }

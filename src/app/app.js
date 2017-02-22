@@ -85,7 +85,13 @@ app.controller('appController',['$scope','$http','$location', '$filter', functio
         $scope.selected = index;
     };
 
-    // botoes do tamanho da fonte da pagina
+
+    // PRINT
+    $scope.print= function(){
+        window.print();    
+    };
+
+    // botoes de tamanho da fonte da pagina
     $scope.fontsizecurrent = 1.0;
     $scope.iconInc = function(){
         $scope.fontsizecurrent = parseFloat($scope.fontsizecurrent);

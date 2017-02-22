@@ -6,12 +6,6 @@
 @import "../../../node_modules/bootstrap/scss/_mixins.scss";
 // reset
 @import "../../../node_modules/bootstrap/scss/_normalize.scss";
-// // buttons
-// @import "../../../node_modules/bootstrap/scss/_buttons.scss";
-// // input group
-// @import "../../../node_modules/bootstrap/scss/_input-group.scss";
-// // forms
-// @import "../../../node_modules/bootstrap/scss/_forms.scss";
 // grid
 @import "../../../node_modules/bootstrap/scss/_grid.scss";
 // reboot
@@ -342,6 +336,10 @@ h2{
         text-align: right;
         width: 14.5em;
     }
+    a{
+        background: url('../../assets/images/ico-export-planilha.png') no-repeat 0 3px transparent;
+        padding-left: 20px;
+    }
 }
 
 /**
@@ -416,3 +414,5 @@ table,td,th{
 
 // responsive
 @import 'imports/_responsive';
+// print
+@import 'imports/_print';
