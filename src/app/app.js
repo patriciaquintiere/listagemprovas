@@ -9,7 +9,7 @@ app.controller('appController',['$scope','$http','$location', '$filter', functio
 
     /////////// MENU
     // lista simulados no menu
-    var listaMenu = function(){
+    $scope.listaMenu = function(){
         $http ({
             method: 'GET',
             url: 'app/data/listasimulados.json'
@@ -21,11 +21,31 @@ app.controller('appController',['$scope','$http','$location', '$filter', functio
         });
     };
 
+    // lista tipos de provas
+    $scope.tiposProva = [
+        { tipo : "objetiva", id: 123 },
+        { tipo : "final", id: 124 }
+    ];
+
+    $scope.toggleActiveSubMenu = function(itemSimulado,id){
+        var createId = itemSimulado;
+        createId += id;
+        var classBtnSimulado = 'btn-simulado';
+        var allSubMenu = document.getElementsByClassName(classBtnSimulado);
+        var idSubMenu = document.getElementById(createId);
+
+        for(i = 0; i < allSubMenu.length; i++){
+            document.getElementsByClassName(classBtnSimulado)[i].setAttribute('class',classBtnSimulado);
+            document.getElementById(createId).setAttribute('class',classBtnSimulado+' active');
+        };
+    };
+
     // salva no click tipo da prova
-    $scope.getSimuladoByTipo = function(itemSimulado,tipo){
+    $scope.getSimuladoByTipo = function(itemSimulado,tipo,id){
         $scope.search.simulado = itemSimulado;
         $scope.search.tipo = tipo;
-        $scope.listaProva()
+        $scope.listaProva();
+        $scope.toggleActiveSubMenu(itemSimulado,id);
     };
 
     /////////// FIM MENU
@@ -65,7 +85,6 @@ app.controller('appController',['$scope','$http','$location', '$filter', functio
             for(i = 0; i < $scope.totalPages; i++){
                 $scope.pages.push(i+1);
             }
-            console.log($scope.provas);
         }).catch (function (response){
             if(response.status == 404){
                 console.log('erro');
@@ -87,8 +106,8 @@ app.controller('appController',['$scope','$http','$location', '$filter', functio
 
 
     // PRINT
-    $scope.print= function(){
-        window.print();    
+    $scope.print = function(){
+        window.print();
     };
 
     // botoes de tamanho da fonte da pagina
@@ -113,6 +132,5 @@ app.controller('appController',['$scope','$http','$location', '$filter', functio
 
     // inicializando algumas funcoes
     $scope.listaProva();
-    listaMenu();
-
+    $scope.listaMenu();
 }]);

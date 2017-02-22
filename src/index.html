@@ -52,8 +52,7 @@
                                         Simulado {{ item.simulado }}
                                     </button>
                                     <div class="listmenu__provas--submenu">
-                                        <a href="#" ng-click="getSimuladoByTipo(item.simulado,'objetiva')">prova objetiva</a>
-                                        <a href="#" ng-click="getSimuladoByTipo(item.simulado,'final')">prova final</a>
+                                        <a href="#" class="btn-simulado" data-submenu="btn-simulado" id="{{ item.simulado }}{{ tipos.id }}" ng-repeat="tipos in tiposProva" ng-click="getSimuladoByTipo(item.simulado,tipos.tipo,tipos.id)">prova {{tipos.tipo}}</a>
                                     </div>
                                 </li>
                             </ul>

@@ -1221,6 +1221,8 @@ header a {
     display: block;
     color: #333;
     margin: 0 0 0 1.8em; }
+    .listmenu__provas li a.active {
+      font-weight: bold; }
 
 /**
 * @subsection TITLES

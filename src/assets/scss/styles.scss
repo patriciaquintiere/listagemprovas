@@ -171,6 +171,10 @@ header{
             color: $gray-text;
 
             margin: 0 0 0 1.8em;
+
+            &.active{
+                font-weight: bold;
+            }
         }
     }
 }
