@@ -114,7 +114,7 @@
                 <div class="simulados__filter col-lg-12">
                     <div class="simulados__filter__summary__inside">
                         <p class="simulados__filter__summary--share col-lg-6 col-xs-12">
-                            <a href="javascript:void(0)">imprimir</a> | <a href="javascript:void(0)">enviar para um amigo</a>
+                            <a href="#" ng-click="print()">imprimir</a> | <a href="javascript:void(0)">enviar para um amigo</a>
                         </p>
                         <p class="simulados__filter__summary--info col-lg-6 col-xs-12">Foram encontrados {{ provas.length }} registros</p>
                     </div>
@@ -140,7 +140,7 @@
                                 <option value="filial">filial</option>
                             </select>
                         </div>
-                        <div class="download-table col-xs-12"><a href="javascript:void(0)">baixar planilha completa</a></div>
+                        <div class="download-table col-xs-12"><a href="#" ng-click="print()">baixar planilha completa</a></div>
                     </div>
                 </div>
                 <div class="simulados__filter col-lg-12">
